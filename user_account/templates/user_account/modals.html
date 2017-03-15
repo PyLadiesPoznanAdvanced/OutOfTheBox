@@ -1,0 +1,87 @@
+{% load static %}
+
+<!-- This conten displays when user is not logged in -->
+
+<!-- Box with login or register to choose -->
+<div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
+  <div class="valign" style="width:100%;">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6 offset-m3 center-align">
+          <div class="section">
+            <h1>#OutOfTheBox</h1>
+            <h6>Lorem ipsum dolor sit amet.</h6>
+          </div>
+          <div class="divider"></div>
+          <div class="section"></div>
+          <button data-target="modal-login" class="waves-effect waves-light btn modal-trigger orange darken-2">LOGIN</button>
+          <button data-target="modal-register" class="waves-effect waves-light btn orange darken-2">REGISTER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="modal-login" class="modal">
+  <div class="modal-content">
+    <h4>Login</h4>
+    <p>Provide correct username and password to login.</p>
+    <form action="{% url 'user_account:login_view' %}" method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="username">Username</label>
+          <input type="text" name="username">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password">Password</label>
+          <input type="password" name="password">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center">
+          <button type="submit" class="modal-action waves-effect waves-light btn orange darken-2">Login</button>
+          <button type="button" class="modal-action modal-close waves-effect waves-light btn orange darken-2">Close</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- REGISTRATION MODAL -->
+<div id="modal-register" class="modal">
+  <div class="modal-content">
+    <h4>Register</h4>
+    <p>Provide correct informations to register.</p>
+    <form action="{% url 'user_account:register' %}" method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="username">Username</label>
+          <input type="text" name="username">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="email">E-mail</label>
+          <input type="email" name="email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password">Password</label>
+          <input type="password" name="password">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center">
+          <button type="submit" class="modal-action waves-effect waves-light btn orange darken-2">Register</button>
+          <button type="button" class="modal-action modal-close waves-effect waves-light btn orange darken-2">Close</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

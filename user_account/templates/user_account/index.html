@@ -1,0 +1,15 @@
+{% extends 'user_account/base.html' %}
+{% load static %}
+
+{% block _title %} Home {% endblock %}
+
+{% block content %}
+
+  {% if user.is_authenticated %}
+    Cześć {{ user }}<br/>
+    Chcesz się <a href={% url 'user_account:logout_view' %}> wylogować</a>?
+  {% else %}
+    {% include 'user_account/modals.html' %}
+  {% endif %}
+
+{% endblock %}

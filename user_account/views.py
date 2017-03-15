@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def start_page(request):
-    return render(request, 'user_account/base.html')
+    return render(request, 'user_account/index.html')
 
 
 def login_view(request):
@@ -26,4 +26,4 @@ def logout_view(request):
     return redirect('user_account:start_page')
 
 def register(request):
-    return render(request, 'user_account/base.html')
+    return render(request, 'user_account/index.html')
