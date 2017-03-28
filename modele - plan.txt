@@ -1,0 +1,44 @@
+Modele Plan Propozycja
+
+
+Po pierwsze User:
+
+- login
+- mail
+- hasło
+- hash (do identyfikacji milowej)
+- pole One2Many - relacja do profili wyszukiwania
+
+=====================================================
+Po drugie
+
+Story...
+Powiedzmy, że na początek startujemy tylko z przeszukiwaniem Facebooka.
+Potrzebny jest zatem profil wyszukiwania wew facebooka zawierający info jak szukać czegoś w fb oraz to co tam znajdziemy. 
+Docelowo po dodaniu kolejnego portalu (redit, youtube itp) będzie trzeba stworzyć kolejne modele będące profilem wyszukiwania z polami specyficznymi dla danego portalu. 
+
+
+Zatem -> Profil Wyszukiwania (SearchProfile)
+info - model ma zawierać info na temat metody wyszukiwania w facebooku, tak by użytkownik mógł tworzyć kilka profili wyszukiwania.
+
+
+- relcja do user'a
+- hashtag (tekst wyszukiwany, może byc kilka hashtagów - wtedy trezba zrobić to przez relację One2Many)
+- pole wyboru -> wyszukiwanie hashtagów w tytule, tekście czy w tytule i w tekście
+- date from  - przeszukiwanie postów młodszych od wskazanej daty
+- date to    - przeszukiwanie postów starszych od wskazanej daty
+- relacja do wyników wyszukiwania dla danego profilu (SearchProfileResults)
+=====================================================
+
+SearchProfileResults  - tutaj będziemy mieli magazyn tego co znajdziemy przy pomocy danego profilu wyszukiwania.
+
+- relacja do SearchProfile
+- data wyszukiwania
+- relacja One2Many do znalezionych postów (najlepiej trzymać tu linki albo id znalezionych postów)
+
+
+=====================================================
+FacebookPost 
+- relacja do SearchProfileResults
+- id
+- link www do danego posta
