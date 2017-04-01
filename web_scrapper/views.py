@@ -1,5 +1,8 @@
+from django.contrib import messages
 from django.shortcuts import render
 from django.views.generic import ListView
+
+from web_scrapper.forms import SearchForm
 from .models import SearchProfile
 
 
@@ -17,3 +20,15 @@ class SearchProfileListView(ListView):
 # Create your views here.
 def configure(request):
     return None
+
+
+def search(request):
+    if request.method == "POST":
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            pass
+            messages.error(request, 'Not working yet')
+            # TODO magic start here
+    else:
+        form = SearchForm()
+    return render(request, 'web_scrapper/search.html', {'form': form, 'section': 'web_scrapper'})
