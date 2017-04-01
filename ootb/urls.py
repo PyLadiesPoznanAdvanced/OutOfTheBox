@@ -13,11 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
+
+from account import views as account_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    #url(r'^login/', include('login_app.urls')),  # to na potem, gdy bedzie strona startowa
-    url(r'^', include('user_account.urls'))  # od razu po wejsci kieruje do logowania
+    url(r'^account/', include('account.urls')),
+    url(r'^$', account_view.dashboard),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

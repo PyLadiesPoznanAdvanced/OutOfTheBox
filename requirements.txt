@@ -1,0 +1,6 @@
+Django==1.10.6
+django-debug-toolbar==1.7
+olefile==0.44
+Pillow==4.0.0
+sqlparse==0.2.3
+virtualenv==15.0.3
