@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Search Profiles List{% endblock %}
+
+{% block content %}
+    <h1>Search Profiles List</h1>
+    {% for search_profile in search_profile_list %}
+        <h3>{{ forloop.counter0 }}: {{ search_profile }}</h3>
+        <hr>
+    {% endfor %}
+
+
+
+{% endblock %}

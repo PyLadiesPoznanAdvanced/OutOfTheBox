@@ -23,6 +23,7 @@ from account import views as account_view
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^account/', include('account.urls')),
+    url(r'^web_scrapper/', include('web_scrapper.urls', namespace='web_scrapper', app_name='web_scrapper')),
     url(r'^$', account_view.dashboard),
 ]
 

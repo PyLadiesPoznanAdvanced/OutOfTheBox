@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'account',
+    'web_scrapper',
     # 'user_account.apps.UserAccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
